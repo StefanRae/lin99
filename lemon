@@ -1,0 +1,80 @@
+#!/bin/sh
+
+
+#TEXT:
+
+TextLeft() {
+	printf ""
+}
+
+TextRight() {
+	printf "vol"
+}
+
+#COLORS:
+
+Fg() {
+	echo "%{F#FAF4ED}"
+}
+
+Bg() {
+	#echo "%{B#FFFFFF}"
+	echo "%{B#B8DEDA}"
+}
+
+Accent1() {
+	echo "%{B#FFFFFF}"
+}
+
+Accent2() {	
+	echo "%{B#000000}"
+}
+
+#MODULES:
+
+Work() {
+	WRKBNCH=$(xprop -root 32c '\t$0' _NET_CURRENT_DESKTOP | cut -f 2 | awk '{print $0+1}') 
+
+	if [ "$WRKBNCH" = "1" ]; then
+        printf %s " ∗ - - - "
+    elif [ "$WRKBNCH" = "2" ]; then
+		printf %s " - ∗ - - "
+	elif [ "$WRKBNCH" = "3" ]; then
+		printf %s " - - ∗ - "
+	elif [ "$WRKBNCH" = "4" ]; then
+		printf %s " - - - ∗ "
+    else
+        printf %s " $WRKBNCH "
+    fi
+
+
+	# printf %s " $WRKBNCH "
+}
+
+Time() {
+	TIME=$(date +" %d/%m %H:%M")
+	printf %s " $TIME "
+}
+
+Music() {
+	MUSIC=$(mpc current)
+	PLAYING=$(mpc | grep -q '\[playing\]' && echo "true" || echo "false")
+	PAUSED=$(mpc | grep -q '\[paused\]' && echo "true" || echo "false")
+	
+	
+	if [ "$PLAYING" = "true" ]; then
+        printf %s " $MUSIC |"
+    elif [ "$PAUSED" = "true" ]; then
+		printf %s " $MUSIC ""[paused] |"
+    else
+        printf %s " "
+    fi
+}
+
+#OUTPUT:
+
+while true; do
+	# echo "%{A1:mpc toggle5:}%{l}☀%{A1}%{c}%{F#000000}$(Bg)$(Time)%{r}$(Bg)%{F#000000} %{F#000000}$(Bg)%{A1:mpc -q prev:}%{A2:mpc toggle:}%{A3:mpc -q next:}$(Music)%{A1}%{A2}%{A3}$(TextLeft) %{F#000000}$(Bg)$(Work)"
+	echo "%{c}%{F#000000}$(Bg)$(Time)%{r}$(Bg)%{F#000000} %{F#000000}$(Bg)%{A1:mpc -q prev:}%{A2:mpc toggle:}%{A3:mpc -q next:}$(Music)%{A1}%{A2}%{A3}$(TextLeft) %{F#000000}$(Bg)$(Work)"
+	sleep 0.1
+done;
