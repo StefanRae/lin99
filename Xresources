@@ -1,0 +1,85 @@
+!! MISC
+
+! Clickable links
+*perl-ext-common: default,matcher
+*url-launcher:    firefox
+*matcher.button:  1
+
+
+!! RICE
+
+! Make minimal
+*scrollBar:      false
+*internalBorder: 23
+!!*geometry:       75x14
+
+! Change cursor
+*cursorUnderline: true
+*cursorBlink: true
+
+! Set font
+!*font:           -windows-dina-medium-r-normal--13-80-96-96-c-70-microsoft-cp1252,-FreeType-JackeyFont-Medium-R-Normal--12-90-100-100-P-21-ISO10646-1,-freetype-baekmukbig-medium-r-normal--12-120-75-75-p-55-iso10646-1
+!*font:           gohufont 11 nerd font propo:size=11
+!*lineSpace:      8
+
+
+!! COLORS
+
+! Misc
+*foreground:  #E8DFD6
+*background:  #305654
+!*cursorColor: #274654
+*cursorColor: #E8DFD6
+
+! Black
+*color0: #032C36
+*color8: #234149
+
+! Red
+*color1: #C2454E
+*color9: #EF5847
+
+! Green
+*color2:  #7CBF9E
+*color10: #A2D9B1
+
+! Yellow
+*color3:  #8A7A63
+*color11: #BEB090
+
+! Blue
+*color4:  #7BBAC7
+*color12: #DFF0EB
+
+! Magenta
+*color5:  #FF5879
+*color13: #FF99A1
+
+! Cyan
+*color6:  #7BBAC7
+*color14: #DFF0EB
+
+! White
+*color7:  #F2F1B9
+*color15: #F6F6C9
+
+
+!XTerm.font: GohuFont11NerdFont-Regular
+
+!! MISC
+
+! Todo popup stuff
+!todo.internalBorder: 17
+!todo.geometry:       45x6
+!todo.borderLess:     true
+!todo.font:           xft:curefix,-freetype-baekmuksmall-medium-r-normal--9-90-75-75-p-38-iso10646-1
+!todo.foreground:     #021B21
+!todo.background:     #EEEEEE
+!todo.cursorColor:    #021B21
+!todo.color8:         #5394C9
+
+
+
+
+URxvt.font: xft:gohufont 14 nerd font mono:pixelsize=14
+URxvt.antialias: true
